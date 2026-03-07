@@ -964,6 +964,96 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 </div>
 <div id="dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
 
+<!-- ╔══════════════════════════════╗ -->
+<!-- ║  SLIDE 28.1 — FINAL.anexo    ║ -->
+<!-- ╚══════════════════════════════╝ -->
+<div class="slide s-az" id="s9">
+<div class="sc" style="text-align:center; max-width: 95vw;">
+  <div class="badge badge-am a1">Resumo Definitivo — Ordenação</div>
+  <div class="ctitle a2" style="color:#fff">Tabela de<br><span style="color:var(--am)">Complexidade</span></div>
+  
+  <div class="a3" style="width: 100%; overflow-x: auto; margin: 8px 0; border-radius: 10px; border: 1px solid rgba(255,255,255,.12); scrollbar-width: thin; scrollbar-color: var(--am) transparent;">
+    <div class="cmp" style="margin: 0; min-width: 850px; border: none;">
+      <div class="cmp-row cmp-hdr" style="grid-template-columns: 1.2fr 1.1fr 1.1fr 1.1fr 0.8fr 0.9fr 3.5fr;">
+        <div class="cmp-cell">Algoritmo</div>
+        <div class="cmp-cell">Médio</div>
+        <div class="cmp-cell">Pior Caso</div>
+        <div class="cmp-cell">Melhor Caso</div>
+        <div class="cmp-cell">Estável?</div>
+        <div class="cmp-cell">Memória</div>
+        <div class="cmp-cell">Característica Chave (Bizu)</div>
+      </div>
+      
+      <div class="cmp-row" style="grid-template-columns: 1.2fr 1.1fr 1.1fr 1.1fr 0.8fr 0.9fr 3.5fr;">
+        <div class="cmp-cell" style="font-weight:bold;">Bubble Sort</div>
+        <div class="cmp-cell bad">O(n²)</div>
+        <div class="cmp-cell bad">O(n²)</div>
+        <div class="cmp-cell mid">O(n)*</div>
+        <div class="cmp-cell good">✅ Sim</div>
+        <div class="cmp-cell good">O(1)</div>
+        <div class="cmp-cell" style="text-align:left;">Troca vizinhos sucessivamente. O maior "flutua" para o fim. Lento.</div>
+      </div>
+      
+      <div class="cmp-row" style="grid-template-columns: 1.2fr 1.1fr 1.1fr 1.1fr 0.8fr 0.9fr 3.5fr;">
+        <div class="cmp-cell" style="font-weight:bold;">Insertion Sort</div>
+        <div class="cmp-cell bad">O(n²)</div>
+        <div class="cmp-cell bad">O(n²)</div>
+        <div class="cmp-cell good">O(n)</div>
+        <div class="cmp-cell good">✅ Sim</div>
+        <div class="cmp-cell good">O(1)</div>
+        <div class="cmp-cell" style="text-align:left;">"Empurra" cartas. Ótimo para vetores quase ordenados ou pequenos.</div>
+      </div>
+      
+      <div class="cmp-row" style="grid-template-columns: 1.2fr 1.1fr 1.1fr 1.1fr 0.8fr 0.9fr 3.5fr;">
+        <div class="cmp-cell" style="font-weight:bold;">Selection Sort</div>
+        <div class="cmp-cell bad">O(n²)</div>
+        <div class="cmp-cell bad">O(n²)</div>
+        <div class="cmp-cell bad">O(n²)</div>
+        <div class="cmp-cell bad">❌ Não</div>
+        <div class="cmp-cell good">O(1)</div>
+        <div class="cmp-cell" style="text-align:left;">Escolhe o menor e troca. Faz menos trocas que o Bubble, mas compara tudo sempre.</div>
+      </div>
+      
+      <div class="cmp-row" style="grid-template-columns: 1.2fr 1.1fr 1.1fr 1.1fr 0.8fr 0.9fr 3.5fr;">
+        <div class="cmp-cell" style="font-weight:bold;">Merge Sort</div>
+        <div class="cmp-cell good">O(n log n)</div>
+        <div class="cmp-cell good">O(n log n)</div>
+        <div class="cmp-cell good">O(n log n)</div>
+        <div class="cmp-cell good">✅ Sim</div>
+        <div class="cmp-cell bad">O(n)</div>
+        <div class="cmp-cell" style="text-align:left;">"Dividir para Conquistar". Divide ao meio recursivamente. Usa memória extra.</div>
+      </div>
+      
+      <div class="cmp-row" style="grid-template-columns: 1.2fr 1.1fr 1.1fr 1.1fr 0.8fr 0.9fr 3.5fr;">
+        <div class="cmp-cell" style="font-weight:bold;">Quick Sort</div>
+        <div class="cmp-cell good">O(n log n)</div>
+        <div class="cmp-cell bad">O(n²)**</div>
+        <div class="cmp-cell good">O(n log n)</div>
+        <div class="cmp-cell bad">❌ Não</div>
+        <div class="cmp-cell mid">O(log n)</div>
+        <div class="cmp-cell" style="text-align:left;">Usa um Pivô. Rápido na prática, mas perigoso se o pivô for ruim (vetor já ordenado).</div>
+      </div>
+      
+      <div class="cmp-row" style="grid-template-columns: 1.2fr 1.1fr 1.1fr 1.1fr 0.8fr 0.9fr 3.5fr;">
+        <div class="cmp-cell" style="font-weight:bold;">Heap Sort</div>
+        <div class="cmp-cell good">O(n log n)</div>
+        <div class="cmp-cell good">O(n log n)</div>
+        <div class="cmp-cell good">O(n log n)</div>
+        <div class="cmp-cell bad">❌ Não</div>
+        <div class="cmp-cell good">O(1)</div>
+        <div class="cmp-cell" style="text-align:left;">Usa estrutura de Árvore/Heap. Não recursivo, eficiente em memória, mas instável.</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card-am a4">
+    <div class="sm" style="text-align:left;">
+      * <b>Bubble:</b> Melhor caso O(n) só existe se houver uma flag de otimização no código.<br>
+      ** <b>Quick:</b> Pior caso O(n²) acontece quando o pivô é sempre o maior ou menor elemento (ex: array já ordenado).
+    </div>
+  </div>
+</div>
+</div>
 <script>
 // ─── GLOBALS ─────────────────────
 const TOTAL = 28;
