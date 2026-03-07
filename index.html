@@ -250,8 +250,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
   
   <div class="card-am a3" style="text-align:left">
     <div class="sm" style="color:rgba(255,255,255,.9)">
-      <b style="color:var(--vm)">REGRA DE OURO:</b> O array <b>DEVE</b> estar ORDENADO. Se vier bagunçado na prova, a busca binária falha.<br>
-      <hr style="border: 0; border-top: 1px solid rgba(255,208,0,.3); margin: 8px 0;">
+<b style="color:var(--vm)">REGRA DE OURO:</b> Aqui a <b style="color:var(--am)">ORDENAÇÃO É OBRIGATÓRIA</b>. Nunca inicie o cálculo do <b>'meio'</b> sem antes conferir se o vetor da questão está ordenado. Se o vetor vier bagunçado na prova, a busca binária irá falhar.<br>      <hr style="border: 0; border-top: 1px solid rgba(255,208,0,.3); margin: 8px 0;">
       <b style="color:var(--am)">Fórmula do Índice Central:</b><br>
       <span class="mono" style="background: rgba(0,0,0,.25); padding: 3px 6px; border-radius: 4px; font-size: 13px; color: #fff; display: inline-block; margin-top: 4px;">meio = (início + fim) / 2</span>
       <span style="font-size: 11px; color: var(--cinza); margin-left: 4px;">*considere apenas a parte inteira</span>
@@ -479,15 +478,22 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
     </div>
     <div style="font-size:10px;color:var(--cinza);margin-top:8px">cada nó: [ dado | ponteiro → próximo ]</div>
   </div>
+  
   <div class="cmp a4">
     <div class="cmp-row h3 cmp-hdr"><div class="cmp-cell">Operação</div><div class="cmp-cell">Complexidade</div><div class="cmp-cell">Obs</div></div>
     <div class="cmp-row h3"><div class="cmp-cell">Acesso por índice</div><div class="cmp-cell bad">O(n)</div><div class="cmp-cell">Percorre tudo</div></div>
     <div class="cmp-row h3"><div class="cmp-cell">Inserção no início</div><div class="cmp-cell good">O(1)</div><div class="cmp-cell">Só muda ponteiro</div></div>
     <div class="cmp-row h3"><div class="cmp-cell">Remoção no início</div><div class="cmp-cell good">O(1)</div><div class="cmp-cell">Só muda ponteiro</div></div>
     <div class="cmp-row h3"><div class="cmp-cell">Busca por valor</div><div class="cmp-cell bad">O(n)</div><div class="cmp-cell">Sequencial</div></div>
+    <div class="cmp-row h3"><div class="cmp-cell">Busca Binária</div><div class="cmp-cell bad">Impossível</div><div class="cmp-cell">Falta acesso direto</div></div>
   </div>
+  
   <div class="card-cx a5">
     <div class="sm">Vantagem sobre Array: inserir/remover no meio é rápido (só muda ponteiros, não precisa deslocar todos os elementos).</div>
+  </div>
+  
+  <div class="card-vm a5" style="text-align:left; margin-top: 8px;">
+    <div class="sm"><b style="color:var(--vm)">🚨 PEGADINHA:</b> NÃO se faz Busca Binária em Lista Encadeada (mesmo que esteja ordenada). A busca binária exige pular para o meio através do índice em O(1), e a lista só permite acesso sequencial.</div>
   </div>
 </div>
 </div>
