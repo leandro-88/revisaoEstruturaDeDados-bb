@@ -333,7 +333,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
   <div id="bb-info" class="step-info a4" style="margin-top: 12px;">▶ Pressione PLAY</div>
   
   <div class="controls a4">
-    <button class="ctrl-btn" onclick="togglePlay(this); sortPlay('bb')">▶ PLAY</button>
+    <button class="ctrl-btn" onclick="togglePlay(this, 'bb')">▶ PLAY / ⏸ PAUSE</button>
     <button class="ctrl-btn" onclick="sortReset('bb')">↺ RESET</button>
   </div>
   
@@ -357,8 +357,9 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
   <div id="sel-info" class="step-info a4" style="margin-top: 12px;">▶ Pressione PLAY</div>
   
   <div class="controls a4">
-    <button class="ctrl-btn" onclick="togglePlay(this); sortPlay('sel')">▶ PLAY</button>
+    <button class="ctrl-btn" onclick="togglePlay(this, 'bb')">▶ PLAY / ⏸ PAUSE</button>
     <button class="ctrl-btn" onclick="sortReset('sel')">↺ RESET</button>
+
   </div>
 
   <div class="card-vd a5" style="text-align:left">
@@ -381,7 +382,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
   <div id="ins-info" class="step-info a4" style="margin-top: 12px;">▶ Pressione PLAY</div>
   
   <div class="controls a4">
-    <button class="ctrl-btn" onclick="togglePlay(this); sortPlay('ins')">▶ PLAY</button>
+    <button class="ctrl-btn" onclick="togglePlay(this, 'bb')">▶ PLAY / ⏸ PAUSE</button>
     <button class="ctrl-btn" onclick="sortReset('ins')">↺ RESET</button>
   </div>
 
@@ -1248,19 +1249,18 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 // ─── GLOBALS ─────────────────────
 const TOTAL = 33;
 let cur = 0;
-let paused = false;
+let paused = true;
 let currentSort = 'bb';
 
-function togglePlay(btn){
-    if (btn.innerHTML.includes("PLAY")) {
-        btn.innerHTML = "⏸ PAUSE";
-        paused = false;
-    } else {
-        btn.innerHTML = "▶ PLAY";
-        paused = true;
+function togglePlay(id) {
+    // Apenas inverte o valor da variável (true vira false / false vira true)
+    paused = !paused; 
+    
+    // Se agora NÃO está pausado e o motor está desligado, liga o motor
+    if (!paused && !sortTimers[id]) {
+        sortPlay(id);
     }
 }
-
 
 const answered = {};
 const correct = { qa: 'B', qb: 'C', qc: 'B', qd: 'B', qe: 'C', qf: 'B', qs: 'B', qi: 'A' };
@@ -1500,21 +1500,36 @@ let sortCurArr = { bb: [5, 3, 8, 1, 9, 2], sel: [5, 3, 8, 1, 9, 2], ins: [5, 3, 
 let sortCounters = { bb: { comparisons: 0, swaps: 0, passes: 0 }, sel: { comparisons: 0, swaps: 0, passes: 0 }, ins: { comparisons: 0, swaps: 0, passes: 0 } };
 
 function sortReset(id) {
-    currentSort = id;
+    // 1. Para o motor e limpa o timer para permitir novo início
     clearInterval(sortTimers[id]);
+    sortTimers[id] = null; 
+    
+    // 2. Volta o índice da animação para o começo
     sortStepIdx[id] = 0;
-    sortCurArr[id] = [5, 3, 8, 1, 9, 2];
-    sortCounters[id] = { comparisons: 0, swaps: 0, passes: 0 };
+    
+    // 3. Importante: Força o estado a ficar "Pausado" para o próximo clique dar o Start
+    paused = true; 
+
+    // 4. REMOVIDO: A parte que mudava o texto do botão (btn.innerHTML) 
+    // agora o botão fica sempre com o texto que você escreveu no HTML.
+
+    // 5. Reseta o Array Visual para o estado inicial [5,3,8,1,9,2]
     const w = document.getElementById(id + '-arr');
-    w.innerHTML = '';
-    sortCurArr[id].forEach((v, i) => {
-        const c = document.createElement('div');
-        c.className = 'arr-cell normal';
-        c.id = id + 'c' + i;
-        c.innerHTML = v + '<span class="arr-idx">' + i + '</span>';
-        w.appendChild(c);
-    });
-    document.getElementById(id + '-info').innerHTML = "▶ Pressione PLAY<br><b>Comparações:</b> 0 | <b>Trocas:</b> 0 | <b>Passagens:</b> 0";
+    if (w) {
+        w.innerHTML = '';
+        [5,3,8,1,9,2].forEach((v, i) => {
+            w.innerHTML += `<div class="arr-cell normal" id="${id}c${i}">${v}<span class="arr-idx">${i}</span></div>`;
+        });
+    }
+
+    // 6. Reseta as estatísticas (Comparações, Trocas, etc.)
+    sortCounters[id] = {comparisons: 0, swaps: 0, passes: 0};
+
+    // 7. Atualiza o texto informativo
+    const info = document.getElementById(id + '-info');
+    if (info) {
+        info.innerHTML = "▶ Pronto para iniciar<br><b>Comparações:</b> 0 | <b>Trocas:</b> 0 | <b>Passagens:</b> 0";
+    }
 }
 
 function sortPlay(id) {
