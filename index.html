@@ -863,11 +863,59 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
   <div id="qd-fb" class="qfb"></div>
 </div>
 </div>
+
+<!-- ╔══════════════════════════════╗ -->
+<!-- ║  SLIDE 22 — QUIZ ÁRVORES Inv ║ -->
+<!-- ╚══════════════════════════════╝ -->
+
+<div class="slide s-warn" id="s23">
+<div class="sc" style="text-align:center">
+  <div class="badge badge-vm a1">🚨 Pegadinha — Quiz</div>
+  <div class="ctitle a2" style="color:#fff">Cuidado com<br>a Ordem!</div>
+  
+  <div class="card a3" style="text-align:center">
+    <div class="sm" style="color:#fff; margin-bottom: 12px;">Na mesma árvore abaixo, qual é a travessia <b>Em-Ordem INVERTIDA</b> (Direita → Raiz → Esquerda)?</div>
+    
+    <svg viewBox="0 0 300 150" style="width:100%; max-width: 280px; margin: 0 auto; display: block;">
+      <line x1="150" y1="20" x2="80" y2="70" stroke="rgba(255,255,255,.2)" stroke-width="2"></line>
+      <line x1="150" y1="20" x2="220" y2="70" stroke="rgba(255,255,255,.2)" stroke-width="2"></line>
+      <line x1="80" y1="70" x2="45" y2="120" stroke="rgba(255,255,255,.15)" stroke-width="2"></line>
+      <line x1="80" y1="70" x2="115" y2="120" stroke="rgba(255,255,255,.15)" stroke-width="2"></line>
+      <line x1="220" y1="70" x2="185" y2="120" stroke="rgba(255,255,255,.15)" stroke-width="2"></line>
+      <line x1="220" y1="70" x2="255" y2="120" stroke="rgba(255,255,255,.15)" stroke-width="2"></line>
+
+      <circle cx="150" cy="20" r="16" fill="rgba(255,208,0,.2)" stroke="#FFD000" stroke-width="2"></circle>
+      <text x="150" y="25" text-anchor="middle" fill="#FFD000" font-family="JetBrains Mono" font-weight="700" font-size="13">4</text>
+      <circle cx="80" cy="70" r="15" fill="rgba(0,87,168,.4)" stroke="#0057A8" stroke-width="2"></circle>
+      <text x="80" y="75" text-anchor="middle" fill="#7BB8FF" font-family="JetBrains Mono" font-weight="700" font-size="12">2</text>
+      <circle cx="220" cy="70" r="15" fill="rgba(0,87,168,.4)" stroke="#0057A8" stroke-width="2"></circle>
+      <text x="220" y="75" text-anchor="middle" fill="#7BB8FF" font-family="JetBrains Mono" font-weight="700" font-size="12">6</text>
+      <circle cx="45" cy="120" r="14" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.2)" stroke-width="1.5"></circle>
+      <text x="45" y="124" text-anchor="middle" fill="rgba(255,255,255,.8)" font-family="JetBrains Mono" font-size="12">1</text>
+      <circle cx="115" cy="120" r="14" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.2)" stroke-width="1.5"></circle>
+      <text x="115" y="124" text-anchor="middle" fill="rgba(255,255,255,.8)" font-family="JetBrains Mono" font-size="12">3</text>
+      <circle cx="185" cy="120" r="14" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.2)" stroke-width="1.5"></circle>
+      <text x="185" y="124" text-anchor="middle" fill="rgba(255,255,255,.8)" font-family="JetBrains Mono" font-size="12">5</text>
+      <circle cx="255" cy="120" r="14" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.2)" stroke-width="1.5"></circle>
+      <text x="255" y="124" text-anchor="middle" fill="rgba(255,255,255,.8)" font-family="JetBrains Mono" font-size="12">7</text>
+    </svg>
+  </div>
+  
+  <div id="qd_inv-opts" class="a4" style="width:100%">
+    <button class="qopt" onclick="ans(this,'qd_inv','A')">A) 4, 6, 7, 5, 2, 3, 1 (Pré-Ordem Invertida)</button>
+    <button class="qopt" onclick="ans(this,'qd_inv','B')">B) 1, 2, 3, 4, 5, 6, 7 (Em-Ordem Normal)</button>
+    <button class="qopt" onclick="ans(this,'qd_inv','C')">C) 7, 6, 5, 4, 3, 2, 1 (Em-Ordem Invertida)</button>
+    <button class="qopt" onclick="ans(this,'qd_inv','D')">D) 7, 5, 6, 3, 1, 2, 4 (Pós-Ordem Invertida)</button>
+  </div>
+  
+  <div id="qd_inv-fb" class="qfb"></div>
+</div>
+</div>
   
 <!-- ╔══════════════════════════════╗ -->
 <!-- ║  SLIDE 23 — RADAR CESGRANRIO║ -->
 <!-- ╚══════════════════════════════╝ -->
-<div class="slide s-warn" id="s23">
+<div class="slide s-warn" id="s24">
 <div class="sc" style="text-align:center">
   <div class="badge badge-am a1">🎯 Radar Cesgranrio</div>
   <div class="ctitle a2" style="color:#fff">O Que a Banca<br><span style="color:var(--am)">Adora Cobrar</span></div>
@@ -895,7 +943,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 <!-- ╔═════════════════════════════════════╗ -->
 <!-- ║  SLIDE 24 — CÓDIGO DE ORDENAMENTO   ║ -->
 <!-- ╚═════════════════════════════════════╝ -->
-<div class="slide s-code" id="s24">
+<div class="slide s-code" id="s25">
   <div class="sc">
     <div class="badge badge-vm a1">Códigos de Ordenamento - Java</div>
     <div class="ctitle a2" style="color:#fff;font-size:clamp(20px,6vw,36px)">Leia o Código</div>
@@ -939,7 +987,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 <!-- ╔═══════════════════════════════════════╗ -->
 <!-- ║  SLIDE 24.1 — CÓDIGO DE ORDENAMENTO   ║ -->
 <!-- ╚═══════════════════════════════════════╝ -->
-<div class="slide s-code" id="s25">
+<div class="slide s-code" id="s26">
   <div class="sc">
     <div class="badge badge-vd a1">Código — Selection Sort Java</div>
     <div class="ctitle a2" style="color:#fff;font-size:clamp(20px,6vw,36px)">O Menor Vai pro Início</div>
@@ -971,7 +1019,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 <!-- ╔══════════════════════════════╗ -->
 <!-- ║  SLIDE 25 — QUIZ FINAL 1    ║ -->
 <!-- ╚══════════════════════════════╝ -->
-<div class="slide s-quiz" id="s26">
+<div class="slide s-quiz" id="s27">
 <div class="sc" style="text-align:center">
   <div class="badge badge-am a1">Quiz Final 1</div>
   <div class="ctitle a2" style="color:#fff">Qual estrutura<br>usar?</div>
@@ -991,7 +1039,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 <!-- ╔══════════════════════════════╗ -->
 <!-- ║  SLIDE 26 — QUIZ FINAL 2    ║ -->
 <!-- ╚══════════════════════════════╝ -->
-<div class="slide s-quiz" id="s27">
+<div class="slide s-quiz" id="s28">
 <div class="sc" style="text-align:center">
   <div class="badge badge-am a1">Quiz Final 2</div>
   <div class="ctitle a2" style="color:#fff">Complexidade<br>de busca</div>
@@ -1011,7 +1059,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 <!-- ╔══════════════════════════════╗ -->
 <!-- ║  SLIDE 27 — RESUMÃO         ║ -->
 <!-- ╚══════════════════════════════╝ -->
-<div class="slide s-dark" id="s28">
+<div class="slide s-dark" id="s29">
 <div class="sc" style="text-align:center">
   <div class="badge badge-am a1">Resumão Final</div>
   <div class="ctitle a2" style="color:#fff">Tudo em<br><span style="color:var(--am)">1 Slide</span></div>
@@ -1033,7 +1081,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 <!-- ╔══════════════════════════════╗ -->
 <!-- ║  SLIDE 28.1 — FINAL          ║ -->
 <!-- ╚══════════════════════════════╝ -->
-<div class="slide s-az" id="s29"> <div class="sc" style="text-align:center; max-width: 95vw;">
+<div class="slide s-az" id="s30"> <div class="sc" style="text-align:center; max-width: 95vw;">
   <div class="badge badge-am a1">mais pouquinho...</div>
   <div class="ctitle a2" style="color:#fff">Tabela de<br><span style="color:var(--am)">Complexidade</span></div>
   
@@ -1129,7 +1177,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 
 <script>
 // ─── GLOBALS ─────────────────────
-const TOTAL = 29;
+const TOTAL = 30;
 let cur = 0;
 const answered = {};
 const correct = {qa:'B',qb:'C',qc:'B',qd:'B',qe:'C',qf:'B'};
