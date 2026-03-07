@@ -333,7 +333,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
   <div id="bb-info" class="step-info a4" style="margin-top: 12px;">▶ Pressione PLAY</div>
   
   <div class="controls a4">
-    <button class="ctrl-btn" onclick="togglePlay(this, 'bb')">▶ PLAY / ⏸ PAUSE</button>
+    <button class="ctrl-btn" onclick="togglePlay(this, 'bb')"> ▶ PLAY </button>
     <button class="ctrl-btn" onclick="sortReset('bb')">↺ RESET</button>
   </div>
   
@@ -357,7 +357,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
   <div id="sel-info" class="step-info a4" style="margin-top: 12px;">▶ Pressione PLAY</div>
   
   <div class="controls a4">
-    <button class="ctrl-btn" onclick="togglePlay(this, 'bb')">▶ PLAY / ⏸ PAUSE</button>
+    <button class="ctrl-btn" onclick="togglePlay(this, 'sel')"> ▶ PLAY </button>
     <button class="ctrl-btn" onclick="sortReset('sel')">↺ RESET</button>
 
   </div>
@@ -382,7 +382,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
   <div id="ins-info" class="step-info a4" style="margin-top: 12px;">▶ Pressione PLAY</div>
   
   <div class="controls a4">
-    <button class="ctrl-btn" onclick="togglePlay(this, 'bb')">▶ PLAY / ⏸ PAUSE</button>
+    <button class="ctrl-btn" onclick="togglePlay(this, 'ins')"> ▶ PLAY </button>
     <button class="ctrl-btn" onclick="sortReset('ins')">↺ RESET</button>
   </div>
 
@@ -1249,17 +1249,24 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 // ─── GLOBALS ─────────────────────
 const TOTAL = 33;
 let cur = 0;
-let paused = true;
+let paused = { bb:true, sel:true, ins:true };
 let currentSort = 'bb';
 
-function togglePlay(id) {
-    // Apenas inverte o valor da variável (true vira false / false vira true)
-    paused = !paused; 
-    
-    // Se agora NÃO está pausado e o motor está desligado, liga o motor
-    if (!paused && !sortTimers[id]) {
-        sortPlay(id);
+function togglePlay(btn, sortType){
+
+    currentSort = sortType;
+
+    if (paused) {
+        paused = false;
+        btn.innerHTML = "⏸ PAUSE";
+
+        sortPlay(currentSort);
+
+    } else {
+        paused = true;
+        btn.innerHTML = "▶ PLAY";
     }
+
 }
 
 const answered = {};
@@ -1533,37 +1540,33 @@ function sortReset(id) {
 }
 
 function sortPlay(id) {
-    // Se já houver um timer rodando, apenas alterna o pause (já gerenciado pela variável global 'paused')
-    if (sortTimers[id]) {
-        // O botão de pause/play deve ser controlado externamente (ex: togglePlay)
-        // Aqui apenas garantimos que se o timer existe, não criamos outro.
-        return;
-    }
-
-    sortReset(id);
-    paused = false; // Garante que não comece pausado
-    let stepIndex = sortStepIdx[id]; // usamos o índice do objeto global
+    // REMOVIDO: o sortReset(id) daqui de dentro! 
+    // O motor deve apenas começar de onde o sortStepIdx parou.
+    
+    let stepIndex = sortStepIdx[id]; 
 
     sortTimers[id] = setInterval(() => {
-        if (paused) return; // Se pausado, não executa o passo
+        if (paused) return; // Se pausado, o motor "gira em falso"
 
         const steps = sortSteps[id];
+        
         if (stepIndex >= steps.length) {
             clearInterval(sortTimers[id]);
             sortTimers[id] = null;
+            sortStepIdx[id] = 0; // Prepara para a próxima vez começar do zero
             return;
         }
 
         const s = steps[stepIndex];
         stepIndex++;
-        sortStepIdx[id] = stepIndex; // atualiza o índice global
+        sortStepIdx[id] = stepIndex; 
 
         const counter = sortCounters[id];
-
         if (s.info && s.info.includes("Passagem")) counter.passes++;
         if (s.cmp) counter.comparisons++;
         if (s.swap) counter.swaps++;
 
+        // --- Atualização Visual ---
         if (s.arr) {
             sortCurArr[id] = s.arr;
             s.arr.forEach((v, i) => {
@@ -1574,8 +1577,7 @@ function sortPlay(id) {
 
         sortCurArr[id].forEach((_, i) => {
             const c = document.getElementById(id + 'c' + i);
-            if (!c) return;
-            c.className = 'arr-cell ' + (s.sorted && s.sorted.includes(i) ? 'sorted' : 'normal');
+            if (c) c.className = 'arr-cell ' + (s.sorted && s.sorted.includes(i) ? 'sorted' : 'normal');
         });
 
         if (s.cmp) s.cmp.forEach(i => { const c = document.getElementById(id + 'c' + i); if (c) c.className = 'arr-cell comparing'; });
@@ -1587,6 +1589,7 @@ function sortPlay(id) {
         if (s.done) {
             clearInterval(sortTimers[id]);
             sortTimers[id] = null;
+            sortStepIdx[id] = 0;
         }
     }, 1200);
 }
