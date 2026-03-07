@@ -327,12 +327,16 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
   <div class="card a3" style="text-align:left">
     <div class="sm">Compara pares vizinhos <b>(j, j+1)</b> e troca se estiverem fora de ordem. A cada passagem completa, o maior elemento vai para o final.<b style="color:var(--am)">O fim do array fica ordenado primeiro.</b></div>
   </div>
+  
   <div id="bb-arr" class="arr-wrap a4" style="margin-top:16px"><div class="arr-cell normal" id="bbc0">5<span class="arr-idx">0</span></div><div class="arr-cell normal" id="bbc1">3<span class="arr-idx">1</span></div><div class="arr-cell normal" id="bbc2">8<span class="arr-idx">2</span></div><div class="arr-cell normal" id="bbc3">1<span class="arr-idx">3</span></div><div class="arr-cell normal" id="bbc4">9<span class="arr-idx">4</span></div><div class="arr-cell normal" id="bbc5">2<span class="arr-idx">5</span></div></div>
-  <div id="bb-info" class="step-info a4">▶ Pressione PLAY</div>
+  
+  <div id="bb-info" class="step-info a4" style="margin-top: 12px;">▶ Pressione PLAY</div>
+  
   <div class="controls a4">
-    <button class="ctrl-btn" onclick="sortPlay(&#39;bb&#39;)">▶ PLAY</button>
-    <button class="ctrl-btn" onclick="sortReset(&#39;bb&#39;)">↺ RESET</button>
+    <button class="ctrl-btn" onclick="sortPlay('bb')">▶ PLAY</button>
+    <button class="ctrl-btn" onclick="sortReset('bb')">↺ RESET</button>
   </div>
+  
   <div class="card-vm a5" style="text-align:left">
     <div class="sm"><b style="color:var(--vm)">Desvantagem:</b> muitas trocas desnecessárias. Pior algoritmo dos três em geral.</div>
   </div>
@@ -457,6 +461,60 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
     <button class="qopt" onclick="ans(this,&#39;qb&#39;,&#39;D&#39;)">D) Merge Sort</button>
   </div>
   <div id="qb-fb" class="qfb"></div>
+</div>
+</div>
+
+<!-- ╔══════════════════════════════╗ -->
+<!-- ║  SLIDE 11.1 — QUIZ SELECTION SORT ║ -->
+<!-- ╚══════════════════════════════╝ -->
+<div class="slide s-quiz" id="s11">
+<div class="sc" style="text-align:center">
+  <div class="badge badge-am a1">Quiz — Ordenação</div>
+  <div class="ctitle a2" style="color:#fff">Como funciona o<br>Selection Sort?</div>
+
+  <div class="card a3">
+    <div class="sm" style="color:#fff">
+      Em cada passagem do algoritmo, ele procura o <b>menor elemento</b> da parte não ordenada do vetor e o coloca na posição correta no início da lista.  
+      Qual é a principal característica desse algoritmo?
+    </div>
+  </div>
+
+  <div id="qs-opts" class="a4" style="width:100%">
+    <button class="qopt" onclick="ans(this,'qs','A')">A) Troca elementos vizinhos várias vezes</button>
+    <button class="qopt" onclick="ans(this,'qs','B')">B) Encontra o menor elemento e o coloca na posição correta</button>
+    <button class="qopt" onclick="ans(this,'qs','C')">C) Divide o vetor em duas partes e ordena recursivamente</button>
+    <button class="qopt" onclick="ans(this,'qs','D')">D) Insere elementos como cartas em uma mão de baralho</button>
+  </div>
+
+  <div id="qs-fb" class="qfb"></div>
+
+</div>
+</div>
+
+<!-- ╔══════════════════════════════╗ -->
+<!-- ║  SLIDE 11.2 — QUIZ INSERTION SORT ║ -->
+<!-- ╚══════════════════════════════╝ -->
+<div class="slide s-quiz" id="s12">
+<div class="sc" style="text-align:center">
+  <div class="badge badge-am a1">Quiz — Ordenação</div>
+  <div class="ctitle a2" style="color:#fff">Qual a lógica do<br>Insertion Sort?</div>
+
+  <div class="card a3">
+    <div class="sm" style="color:#fff">
+      O algoritmo percorre o vetor e pega um elemento por vez, inserindo-o na posição correta dentro da parte já ordenada do vetor.
+      Esse comportamento é comparável a qual situação?
+    </div>
+  </div>
+
+  <div id="qi-opts" class="a4" style="width:100%">
+    <button class="qopt" onclick="ans(this,'qi','A')">A) Organizar cartas na mão em um jogo de baralho</button>
+    <button class="qopt" onclick="ans(this,'qi','B')">B) Trocar repetidamente elementos vizinhos</button>
+    <button class="qopt" onclick="ans(this,'qi','C')">C) Dividir o vetor em duas metades</button>
+    <button class="qopt" onclick="ans(this,'qi','D')">D) Sempre mover o maior elemento para o final</button>
+  </div>
+
+  <div id="qi-fb" class="qfb"></div>
+
 </div>
 </div>
 
@@ -1182,18 +1240,21 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 <div id="dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
 
 <script>
+
 // ─── GLOBALS ─────────────────────
 const TOTAL = 31;
 let cur = 0;
 const answered = {};
-const correct = {qa:'B',qb:'C',qc:'B',qd:'B',qe:'C',qf:'B'};
+const correct = {qa:'B',qb:'C',qc:'B',qd:'B',qe:'C',qf:'B',qs:'B',qi:'A'};
 const explain = {
   qa:'log₂(64) = 6. Em cada passo descarta metade → 6 comparações no máximo.',
   qb:'Dois fors encadeados + troca de vizinhos v[j] e v[j+1] = Bubble Sort.',
   qc:'push(5)→[5] · push(8)→[5,8] · pop()→[5] · push(3)→[5,3] · push(7)→[5,3,7] · pop()→[5,3]. Topo = 3.',
   qd:'Em-Ordem: Esq→Raiz→Dir numa BST = ordem crescente: 1,2,3,4,5,6,7.',
   qe:'Max-Heap acessa o elemento de maior prioridade em O(1) — ideal para escalonador.',
-  qf:'Lista encadeada: busca O(n) (percorre tudo). BST balanceada: O(log n).'
+  qf:'Lista encadeada: busca O(n) (percorre tudo). BST balanceada: O(log n).',
+  qs:'No Selection Sort, a cada passagem o algoritmo procura o menor elemento da parte não ordenada e o coloca na posição correta no início do vetor.',
+  qi:'Insertion Sort funciona como organizar cartas na mão: você pega uma carta e insere na posição correta entre as que já estão ordenadas.'
 };
 
 // ─── DOTS ────────────────────────
@@ -1325,85 +1386,147 @@ function binPlay(){
     }
     document.getElementById('bin-info').textContent=s.info;
     binStep++;
-  },1400);
+  },2500);
 }
 
 // ─── SORTING ANIMATIONS ──────────
 const SORT_ARR={bb:[5,3,8,1,9,2],sel:[5,3,8,1,9,2],ins:[5,3,8,1,9,2]};
 const sortSteps={
-  bb:[
-    {cmp:[0,1],info:'Passagem 1: compara 5 e 3 → troca'},
-    {swap:[0,1],arr:[3,5,8,1,9,2],info:'Trocou! → [3,5,8,1,9,2]'},
-    {cmp:[1,2],info:'Compara 5 e 8 → OK, não troca'},
-    {cmp:[2,3],info:'Compara 8 e 1 → troca'},
-    {swap:[2,3],arr:[3,5,1,8,9,2],info:'Trocou! → [3,5,1,8,9,2]'},
-    {cmp:[3,4],info:'Compara 8 e 9 → OK'},
-    {cmp:[4,5],info:'Compara 9 e 2 → troca'},
-    {swap:[4,5],arr:[3,5,1,8,2,9],sorted:[5],info:'Trocou! 9 flutuou para o fim ✅'},
-    {cmp:[0,1],arr:[3,5,1,8,2,9],info:'Passagem 2...'},
-    {done:true,arr:[1,2,3,5,8,9],sorted:[0,1,2,3,4,5],info:'Ordenado! ✅ O fim ficou ordenado primeiro.'},
+bb:[
+    // PASSAGEM 1
+    {cmp:[0,1], info:'Passagem 1: compara 5 e 3 → troca'},
+    {swap:[0,1], arr:[3,5,8,1,9,2], info:'Trocou! → [3,5,8,1,9,2]'},
+    {cmp:[1,2], info:'Compara 5 e 8 → OK, não troca'},
+    {cmp:[2,3], info:'Compara 8 e 1 → troca'},
+    {swap:[2,3], arr:[3,5,1,8,9,2], info:'Trocou! → [3,5,1,8,9,2]'},
+    {cmp:[3,4], info:'Compara 8 e 9 → OK, não troca'},
+    {cmp:[4,5], info:'Compara 9 e 2 → troca'},
+    {swap:[4,5], arr:[3,5,1,8,2,9], sorted:[5], info:'Trocou! 9 flutuou para o fim ✅'},
+
+    // PASSAGEM 2
+    {cmp:[0,1], info:'Passagem 2: compara 3 e 5 → OK, não troca'},
+    {cmp:[1,2], info:'Compara 5 e 1 → troca'},
+    {swap:[1,2], arr:[3,1,5,8,2,9], info:'Trocou! → [3,1,5,8,2,9]'},
+    {cmp:[2,3], info:'Compara 5 e 8 → OK, não troca'},
+    {cmp:[3,4], info:'Compara 8 e 2 → troca'},
+    {swap:[3,4], arr:[3,1,5,2,8,9], sorted:[4,5], info:'Trocou! 8 flutuou para o fim ✅'},
+
+    // PASSAGEM 3
+    {cmp:[0,1], info:'Passagem 3: compara 3 e 1 → troca'},
+    {swap:[0,1], arr:[1,3,5,2,8,9], info:'Trocou! → [1,3,5,2,8,9]'},
+    {cmp:[1,2], info:'Compara 3 e 5 → OK, não troca'},
+    {cmp:[2,3], info:'Compara 5 e 2 → troca'},
+    {swap:[2,3], arr:[1,3,2,5,8,9], sorted:[3,4,5], info:'Trocou! 5 flutuou para o fim ✅'},
+
+    // PASSAGEM 4
+    {cmp:[0,1], info:'Passagem 4: compara 1 e 3 → OK, não troca'},
+    {cmp:[1,2], info:'Compara 3 e 2 → troca'},
+    {swap:[1,2], arr:[1,2,3,5,8,9], sorted:[2,3,4,5], info:'Trocou! 3 flutuou para o fim ✅'},
+
+    // PASSAGEM 5
+    {cmp:[0,1], info:'Passagem 5: compara 1 e 2 → OK, não troca'},
+    {done:true, arr:[1,2,3,5,8,9], sorted:[0,1,2,3,4,5], info:'Ordenado! ✅ O Bubble Sort sempre empurra os maiores pro final.'}
   ],
-  sel:[
-    {min_idx:0,info:'Passagem 1: min provisório = índice 0 (valor 5)'},
-    {min_idx:1,info:'Índice 1=3 < 5 → novo mínimo'},
-    {min_idx:3,info:'Índice 3=1 < 3 → novo mínimo'},
-    {swap:[0,3],arr:[1,3,8,5,9,2],sorted:[0],info:'Menor=1 trocado para posição 0 ✅'},
-    {min_idx:1,arr:[1,3,8,5,9,2],info:'Passagem 2: min provisório = índice 1 (valor 3)'},
-    {swap_none:true,info:'3 já é o menor → troca com ele mesmo'},
-    {swap:[1,1],arr:[1,2,3,5,8,9],sorted:[0,1,2,3,4,5],done:true,info:'Ordenado! ✅ O início ficou ordenado primeiro.'},
+
+// função animação bubble sort
+
+sel:[
+    // PASSAGEM 1 - Array inicial: [5, 3, 8, 1, 9, 2]
+    {min_idx:0, info:'Passagem 1: min provisório = índice 0 (valor 5)'},
+    {min_idx:1, info:'Índice 1 (valor 3) < 5 → novo mínimo'},
+    {min_idx:3, info:'Índice 3 (valor 1) < 3 → novo mínimo'},
+    {swap:[0,3], arr:[1,3,8,5,9,2], sorted:[0], info:'Trocou! Menor=1 foi para a posição 0 ✅'},
+
+    // PASSAGEM 2 - Array atual: [1, 3, 8, 5, 9, 2]
+    {min_idx:1, info:'Passagem 2: min provisório = índice 1 (valor 3)'},
+    {min_idx:5, info:'Índice 5 (valor 2) < 3 → novo mínimo'},
+    {swap:[1,5], arr:[1,2,8,5,9,3], sorted:[0,1], info:'Trocou! Menor=2 foi para a posição 1 ✅'},
+
+    // PASSAGEM 3 - Array atual: [1, 2, 8, 5, 9, 3]
+    {min_idx:2, info:'Passagem 3: min provisório = índice 2 (valor 8)'},
+    {min_idx:3, info:'Índice 3 (valor 5) < 8 → novo mínimo'},
+    {min_idx:5, info:'Índice 5 (valor 3) < 5 → novo mínimo'},
+    {swap:[2,5], arr:[1,2,3,5,9,8], sorted:[0,1,2], info:'Trocou! Menor=3 foi para a posição 2 ✅'},
+
+    // PASSAGEM 4 - Array atual: [1, 2, 3, 5, 9, 8]
+    {min_idx:3, info:'Passagem 4: min provisório = índice 3 (valor 5)'},
+    {swap_none:true, arr:[1,2,3,5,9,8], sorted:[0,1,2,3], info:'5 já é o menor → fica onde está ✅'},
+
+    // PASSAGEM 5 - Array atual: [1, 2, 3, 5, 9, 8]
+    {min_idx:4, info:'Passagem 5: min provisório = índice 4 (valor 9)'},
+    {min_idx:5, info:'Índice 5 (valor 8) < 9 → novo mínimo'},
+    {swap:[4,5], arr:[1,2,3,5,8,9], sorted:[0,1,2,3,4], info:'Trocou! Menor=8 foi para a posição 4 ✅'},
+
+    // FINAL
+    {done:true, arr:[1,2,3,5,8,9], sorted:[0,1,2,3,4,5], info:'Ordenado! ✅ O Selection Sort garante os menores no início.'}
   ],
-  ins:[
-    {key:1,arr:[5,3,8,1,9,2],info:'Pega key=3 (índice 1)'},
-    {arr:[3,5,8,1,9,2],sorted:[0,1],info:'3 < 5 → empurra 5 para direita, insere 3 → [3,5,8,...]'},
-    {key:3,info:'Pega key=8 (índice 2)'},
-    {arr:[3,5,8,1,9,2],sorted:[0,1,2],info:'8 > 5 → já está no lugar certo → [3,5,8,...]'},
-    {key:4,info:'Pega key=1 (índice 3)'},
-    {arr:[1,3,5,8,9,2],sorted:[0,1,2,3],info:'1 é menor que todos → vai para o início → [1,3,5,8,...]'},
-    {done:true,arr:[1,2,3,5,8,9],sorted:[0,1,2,3,4,5],info:'Ordenado! ✅ A parte esquerda sempre ordenada.'},
-  ]
+ins:[
+    // O índice 0 (valor 5) já começa "ordenado" na lógica do baralho.
+    
+    // PASSAGEM 1
+    {key:1, info:'Passagem 1: Pega a carta key=3 (índice 1)'},
+    {arr:[3,5,8,1,9,2], sorted:[0,1], info:'3 < 5 → empurra 5 para a direita e insere o 3 ✅'},
+
+    // PASSAGEM 2
+    {key:2, info:'Passagem 2: Pega a carta key=8 (índice 2)'},
+    {arr:[3,5,8,1,9,2], sorted:[0,1,2], info:'8 > 5 → já está na posição correta (não empurra ninguém) ✅'},
+
+    // PASSAGEM 3
+    {key:3, info:'Passagem 3: Pega a carta key=1 (índice 3)'},
+    {arr:[1,3,5,8,9,2], sorted:[0,1,2,3], info:'1 é menor que todos → empurra 8, 5 e 3, e insere o 1 no início ✅'},
+
+    // PASSAGEM 4
+    {key:4, info:'Passagem 4: Pega a carta key=9 (índice 4)'},
+    {arr:[1,3,5,8,9,2], sorted:[0,1,2,3,4], info:'9 > 8 → já está na posição correta ✅'},
+
+    // PASSAGEM 5
+    {key:5, info:'Passagem 5: Pega a carta key=2 (índice 5)'},
+    {arr:[1,2,3,5,8,9], sorted:[0,1,2,3,4,5], info:'2 é menor que 9, 8, 5 e 3 → empurra todos para a direita e insere após o 1 ✅'},
+
+    // FINAL
+    {done:true, arr:[1,2,3,5,8,9], sorted:[0,1,2,3,4,5], info:'Ordenado! ✅ O Insertion cresce a parte ordenada como cartas na mão.'}
+  ],
 };
 
 let sortTimers={bb:null,sel:null,ins:null};
 let sortStepIdx={bb:0,sel:0,ins:0};
 let sortCurArr={bb:[5,3,8,1,9,2],sel:[5,3,8,1,9,2],ins:[5,3,8,1,9,2]};
+let sortCounters={bb:{comparisons:0,swaps:0,passes:0},sel:{comparisons:0,swaps:0,passes:0},ins:{comparisons:0,swaps:0,passes:0}};
 
 function sortReset(id){
-  clearInterval(sortTimers[id]);sortStepIdx[id]=0;
-  sortCurArr[id]=[5,3,8,1,9,2];
-  const w=document.getElementById(id+'-arr');w.innerHTML='';
-  sortCurArr[id].forEach((v,i)=>{
-    const c=document.createElement('div');
-    c.className='arr-cell normal';c.id=id+'c'+i;
-    c.innerHTML=v+'<span class="arr-idx">'+i+'</span>';
-    w.appendChild(c);
-  });
-  document.getElementById(id+'-info').textContent='▶ Pressione PLAY';
+clearInterval(sortTimers[id]);sortStepIdx[id]=0;sortCurArr[id]=[5,3,8,1,9,2];
+sortCounters[id]={comparisons:0,swaps:0,passes:0};
+const w=document.getElementById(id+'-arr');w.innerHTML='';
+sortCurArr[id].forEach((v,i)=>{const c=document.createElement('div');c.className='arr-cell normal';c.id=id+'c'+i;c.innerHTML=v+'<span class="arr-idx">'+i+'</span>';w.appendChild(c);});
+document.getElementById(id+'-info').innerHTML="▶ Pressione PLAY<br><b>Comparações:</b> 0 | <b>Trocas:</b> 0 | <b>Passagens:</b> 0";
 }
 
 function sortPlay(id){
-  sortReset(id);let si=0;
-  sortTimers[id]=setInterval(()=>{
-    const steps=sortSteps[id];
-    if(si>=steps.length){clearInterval(sortTimers[id]);return;}
-    const s=steps[si++];
-    if(s.arr){
-      sortCurArr[id]=s.arr;
-      s.arr.forEach((v,i)=>{
-        const c=document.getElementById(id+'c'+i);
-        if(c){c.innerHTML=v+'<span class="arr-idx">'+i+'</span>';}
-      });
-    }
-    sortCurArr[id].forEach((_,i)=>{
-      const c=document.getElementById(id+'c'+i);
-      if(!c)return;
-      c.className='arr-cell '+(s.sorted&&s.sorted.includes(i)?'sorted':'normal');
-    });
-    if(s.cmp)s.cmp.forEach(i=>{const c=document.getElementById(id+'c'+i);if(c)c.className='arr-cell comparing';});
-    if(s.swap)s.swap.forEach(i=>{const c=document.getElementById(id+'c'+i);if(c)c.className='arr-cell swapping';});
-    if(s.min_idx!==undefined){const c=document.getElementById(id+'c'+s.min_idx);if(c)c.className='arr-cell found';}
-    document.getElementById(id+'-info').textContent=s.info;
-    if(s.done)clearInterval(sortTimers[id]);
-  },1000);
+sortReset(id);let si=0;
+sortTimers[id]=setInterval(()=>{
+const steps=sortSteps[id];
+if(si>=steps.length){clearInterval(sortTimers[id]);return;}
+const s=steps[si++];const counter=sortCounters[id];
+
+if(s.info&&s.info.includes("Passagem"))counter.passes++;
+if(s.cmp)counter.comparisons++;
+if(s.swap)counter.swaps++;
+
+if(s.arr){
+sortCurArr[id]=s.arr;
+s.arr.forEach((v,i)=>{const c=document.getElementById(id+'c'+i);if(c)c.innerHTML=v+'<span class="arr-idx">'+i+'</span>';});
+}
+
+sortCurArr[id].forEach((_,i)=>{const c=document.getElementById(id+'c'+i);if(!c)return;c.className='arr-cell '+(s.sorted&&s.sorted.includes(i)?'sorted':'normal');});
+
+if(s.cmp)s.cmp.forEach(i=>{const c=document.getElementById(id+'c'+i);if(c)c.className='arr-cell comparing';});
+if(s.swap)s.swap.forEach(i=>{const c=document.getElementById(id+'c'+i);if(c)c.className='arr-cell swapping';});
+if(s.min_idx!==undefined){const c=document.getElementById(id+'c'+s.min_idx);if(c)c.className='arr-cell found';}
+
+document.getElementById(id+'-info').innerHTML=s.info+"<br><b>Comparações:</b> "+counter.comparisons+" | <b>Trocas:</b> "+counter.swaps+" | <b>Passagens:</b> "+counter.passes;
+
+if(s.done)clearInterval(sortTimers[id]);
+},1000);
 }
 
 // ─── PILHA ───────────────────────
