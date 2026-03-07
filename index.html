@@ -629,9 +629,38 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 </div>
 
 <!-- ╔══════════════════════════════╗ -->
+<!-- ║  SLIDE 15.1  — QUIZ PILHAS        ║ -->
+<!-- ╚══════════════════════════════╝ -->
+<div class="slide s-quiz" id="s17">
+<div class="sc" style="text-align:center">
+  <div class="badge badge-am a1">Quiz — Pilhas</div>
+  <div class="ctitle a2" style="color:#fff">Teste de Mesa!</div>
+
+  <div class="card a3">
+    <div class="sm" style="color:#fff">
+      Uma <b>Pilha (Stack)</b> recebe as operações na ordem:<br><br>
+
+      push(2) → push(6) → push(9) → pop() → push(4)<br><br>
+
+      Qual será o <b>topo final da pilha</b>?
+    </div>
+  </div>
+
+  <div id="qp-opts" class="a4" style="width:100%">
+    <button class="qopt" onclick="ans(this,'qp','A')">A) 9</button>
+    <button class="qopt" onclick="ans(this,'qp','B')">B) 6</button>
+    <button class="qopt" onclick="ans(this,'qp','C')">C) 4</button>
+    <button class="qopt" onclick="ans(this,'qp','D')">D) 2</button>
+  </div>
+
+  <div id="qp-fb" class="qfb"></div>
+</div>
+</div>
+
+<!-- ╔══════════════════════════════╗ -->
 <!-- ║  SLIDE 16 — ÁRVORES INTRO   ║ -->
 <!-- ╚══════════════════════════════╝ -->
-<div class="slide s-green" id="s17">
+<div class="slide s-green" id="s18">
 <div class="sc" style="text-align:center">
   <div class="badge badge-am a1">Capítulo 3</div>
   <div class="big a2" style="color:#fff">Árvores</div>
@@ -653,7 +682,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 <!-- ╔══════════════════════════════╗ -->
 <!-- ║  SLIDE 17 — BST             ║ -->
 <!-- ╚══════════════════════════════╝ -->
-<div class="slide s-dark" id="s18">
+<div class="slide s-dark" id="s19">
 <div class="sc" style="text-align:center">
   <div class="badge badge-vd a1">Árvore Binária de Busca — BST</div>
   <div class="ctitle a2" style="color:#fff">Regra da BST</div>
@@ -697,7 +726,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 <!-- ╔══════════════════════════════╗ -->
 <!-- ║  SLIDE 18 — TRAVESSIAS      ║ -->
 <!-- ╚══════════════════════════════╝ -->
-<div class="slide s-az" id="s19">
+<div class="slide s-az" id="s20">
 <div class="sc" style="text-align:center">
   <div class="badge badge-am a1">⭐ Favorita Cesgranrio</div>
   <div class="ctitle a2" style="color:#fff">Travessias de Árvore</div>
@@ -741,7 +770,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 <!-- ╔════════════════════════════════════╗ -->
 <!-- ║  SLIDE 18.1 — TRAVESSIAS Invertida ║ -->
 <!-- ╚════════════════════════════════════╝ -->
-<div class="slide s-warn" id="s20">
+<div class="slide s-warn" id="s21">
 <div class="sc" style="text-align:center">
   <div class="badge badge-vm a1">🚨 Pegadinha Cesgranrio</div>
   <div class="ctitle a2" style="color:#fff">Travessias <span style="color:var(--vm)">Invertidas</span></div>
@@ -795,7 +824,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 <!-- ╔══════════════════════════════╗ -->
 <!-- ║  SLIDE 19 — AVL             ║ -->
 <!-- ╚══════════════════════════════╝ -->
-<div class="slide s-dark" id="s21">
+<div class="slide s-dark" id="s22">
 <div class="sc" style="text-align:center">
   <div class="badge badge-cx a1">Árvore AVL</div>
   <div class="ctitle a2" style="color:#fff">Auto-<span style="color:var(--ciano)">Balanceamento</span></div>
@@ -819,7 +848,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 <!-- ╔══════════════════════════════╗ -->
 <!-- ║  SLIDE 20 — ÁRVORE B/B+     ║ -->
 <!-- ╚══════════════════════════════╝ -->
-<div class="slide s-dark" id="s22">
+<div class="slide s-dark" id="s23">
 <div class="sc" style="text-align:center">
   <div class="badge badge-am a1">⭐ Muito Cobrado — Banco de Dados</div>
   <div class="ctitle a2" style="color:#fff">Árvore B e B+</div>
@@ -839,9 +868,64 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 </div>
 
 <!-- ╔══════════════════════════════╗ -->
+<!-- ║  SLIDE 20.1 — QUIZ ÁRVORE B      ║ -->
+<!-- ╚══════════════════════════════╝ -->
+<div class="slide s-quiz" id="s24">
+<div class="sc" style="text-align:center">
+
+  <div class="badge badge-am a1">Quiz — Árvores</div>
+  <div class="ctitle a2" style="color:#fff">Árvore B</div>
+
+  <div class="card a3">
+    <div class="sm" style="color:#fff">
+      Em uma <b>Árvore B</b>, cada nó pode armazenar várias chaves e vários filhos.
+      Qual é a <b>principal vantagem</b> dessa estrutura em bancos de dados?
+    </div>
+  </div>
+
+  <div id="qbtr-opts" class="a4" style="width:100%">
+    <button class="qopt" onclick="ans(this,'qbtr','A')">A) Permite apenas um filho por nó</button>
+    <button class="qopt" onclick="ans(this,'qbtr','B')">B) Reduz a altura da árvore e o número de acessos ao disco</button>
+    <button class="qopt" onclick="ans(this,'qbtr','C')">C) Ordena os dados apenas na raiz</button>
+    <button class="qopt" onclick="ans(this,'qbtr','D')">D) Funciona somente em memória RAM</button>
+  </div>
+
+  <div id="qbtr-fb" class="qfb"></div>
+
+</div>
+</div>
+
+<!-- ╔══════════════════════════════╗ -->
+<!-- ║  SLIDE 20.2 — QUIZ ÁRVORE B+     ║ -->
+<!-- ╚══════════════════════════════╝ -->
+<div class="slide s-quiz" id="s25">
+<div class="sc" style="text-align:center">
+
+  <div class="badge badge-am a1">Quiz — Árvores</div>
+  <div class="ctitle a2" style="color:#fff">Árvore B+</div>
+
+  <div class="card a3">
+    <div class="sm" style="color:#fff">
+      Em uma <b>Árvore B+</b>, onde ficam armazenados os <b>dados reais</b>?
+    </div>
+  </div>
+
+  <div id="qbplus-opts" class="a4" style="width:100%">
+    <button class="qopt" onclick="ans(this,'qbplus','A')">A) Em todos os nós da árvore</button>
+    <button class="qopt" onclick="ans(this,'qbplus','B')">B) Apenas nos nós internos</button>
+    <button class="qopt" onclick="ans(this,'qbplus','C')">C) Apenas nas folhas</button>
+    <button class="qopt" onclick="ans(this,'qbplus','D')">D) Apenas na raiz</button>
+  </div>
+
+  <div id="qbplus-fb" class="qfb"></div>
+
+</div>
+</div>
+
+<!-- ╔══════════════════════════════╗ -->
 <!-- ║  SLIDE 21 — HEAP            ║ -->
 <!-- ╚══════════════════════════════╝ -->
-<div class="slide s-dark" id="s23">
+<div class="slide s-dark" id="s26">
 <div class="sc" style="text-align:center">
   <div class="badge badge-or a1">Heap Binária</div>
   <div class="ctitle a2" style="color:#fff">Fila de Prioridade<br><span style="color:var(--or);font-size:.6em">Max-Heap e Min-Heap</span></div>
@@ -881,7 +965,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 <!-- ╔══════════════════════════════╗ -->
 <!-- ║  SLIDE 22 — QUIZ ÁRVORES    ║ -->
 <!-- ╚══════════════════════════════╝ -->
-<div class="slide s-quiz" id="s24">
+<div class="slide s-quiz" id="s27">
 <div class="sc" style="text-align:center">
   <div class="badge badge-am a1">Quiz — Árvores</div>
   <div class="ctitle a2" style="color:#fff">Clássica<br>Cesgranrio!</div>
@@ -934,7 +1018,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 <!-- ╔════════════════════════════════╗ -->
 <!-- ║  SLIDE 22.1 — QUIZ ÁRVORES Inv ║ -->
 <!-- ╚════════════════════════════════╝ -->
-<div class="slide s-warn" id="s25">
+<div class="slide s-warn" id="s28">
 <div class="sc" style="text-align:center">
   <div class="badge badge-vm a1">🚨 Pegadinha — Quiz</div>
   <div class="ctitle a2" style="color:#fff">Cuidado com<br>a Ordem!</div>
@@ -984,7 +1068,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 <!-- ╔══════════════════════════════╗ -->
 <!-- ║  SLIDE 23 — RADAR CESGRANRIO║ -->
 <!-- ╚══════════════════════════════╝ -->
-<div class="slide s-warn" id="s26">
+<div class="slide s-warn" id="s29">
 <div class="sc" style="text-align:center">
   <div class="badge badge-am a1">🎯 Radar Cesgranrio</div>
   <div class="ctitle a2" style="color:#fff">O Que a Banca<br><span style="color:var(--am)">Adora Cobrar</span></div>
@@ -1012,7 +1096,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 <!-- ╔═════════════════════════════════════╗ -->
 <!-- ║  SLIDE 24 — CÓDIGO DE ORDENAMENTO   ║ -->
 <!-- ╚═════════════════════════════════════╝ -->
-<div class="slide s-code" id="s27">
+<div class="slide s-code" id="s30">
   <div class="sc">
     <div class="badge badge-vm a1">Códigos de Ordenamento - Java</div>
     <div class="ctitle a2" style="color:#fff;font-size:clamp(20px,6vw,36px)">Leia o Código</div>
@@ -1056,7 +1140,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 <!-- ╔═══════════════════════════════════════╗ -->
 <!-- ║  SLIDE 24.1 — CÓDIGO DE ORDENAMENTO   ║ -->
 <!-- ╚═══════════════════════════════════════╝ -->
-<div class="slide s-code" id="s28">
+<div class="slide s-code" id="s31">
   <div class="sc">
     <div class="badge badge-vd a1">Código — Selection Sort Java</div>
     <div class="ctitle a2" style="color:#fff;font-size:clamp(20px,6vw,36px)">O Menor Vai pro Início</div>
@@ -1088,7 +1172,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 <!-- ╔══════════════════════════════╗ -->
 <!-- ║  SLIDE 25 — QUIZ FINAL 1    ║ -->
 <!-- ╚══════════════════════════════╝ -->
-<div class="slide s-quiz" id="s29">
+<div class="slide s-quiz" id="s32">
 <div class="sc" style="text-align:center">
   <div class="badge badge-am a1">Quiz Final 1</div>
   <div class="ctitle a2" style="color:#fff">Qual estrutura<br>usar?</div>
@@ -1108,7 +1192,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 <!-- ╔══════════════════════════════╗ -->
 <!-- ║  SLIDE 26 — QUIZ FINAL 2    ║ -->
 <!-- ╚══════════════════════════════╝ -->
-<div class="slide s-quiz" id="s30">
+<div class="slide s-quiz" id="s33">
 <div class="sc" style="text-align:center">
   <div class="badge badge-am a1">Quiz Final 2</div>
   <div class="ctitle a2" style="color:#fff">Complexidade<br>de busca</div>
@@ -1128,7 +1212,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 <!-- ╔══════════════════════════════╗ -->
 <!-- ║  SLIDE 27 — RESUMÃO         ║ -->
 <!-- ╚══════════════════════════════╝ -->
-<div class="slide s-dark" id="s31">
+<div class="slide s-dark" id="s34">
 <div class="sc" style="text-align:center">
   <div class="badge badge-am a1">Resumão Final</div>
   <div class="ctitle a2" style="color:#fff">Tudo em<br><span style="color:var(--am)">1 Slide</span></div>
@@ -1150,7 +1234,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 <!-- ╔══════════════════════════════╗ -->
 <!-- ║  SLIDE 28.1 — FINAL          ║ -->
 <!-- ╚══════════════════════════════╝ -->
-<div class="slide s-az" id="s32"> <div class="sc" style="text-align:center; max-width: 95vw;">
+<div class="slide s-az" id="s35"> <div class="sc" style="text-align:center; max-width: 95vw;">
   <div class="badge badge-am a1">mais pouquinho...</div>
   <div class="ctitle a2" style="color:#fff">Tabela de<br><span style="color:var(--am)">Complexidade</span></div>
   
@@ -1247,7 +1331,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 <script>
 
 // ─── GLOBALS ─────────────────────
-const TOTAL = 33;
+const TOTAL = 36;
 let cur = 0;
 let paused = { bb:true, sel:true, ins:true };
 let currentSort = 'bb';
@@ -1270,7 +1354,21 @@ function togglePlay(btn, sortType){
 }
 
 const answered = {};
-const correct = { qa: 'B', qb: 'C', qc: 'B', qd: 'B', qe: 'C', qf: 'B', qs: 'B', qi: 'A' };
+
+const correct = { 
+  qa: 'B', 
+  qb: 'C', 
+  qc: 'B', 
+  qd: 'B', 
+  qe: 'C', 
+  qf: 'B', 
+  qs: 'B', 
+  qi: 'A',
+  qp: 'C',
+ qbtr: 'B',
+ qbplus: 'C'
+};
+
 const explain = {
     qa: 'log₂(64) = 6. Em cada passo descarta metade → 6 comparações no máximo.',
     qb: 'Dois fors encadeados + troca de vizinhos v[j] e v[j+1] = Bubble Sort.',
@@ -1279,7 +1377,10 @@ const explain = {
     qe: 'Max-Heap acessa o elemento de maior prioridade em O(1) — ideal para escalonador.',
     qf: 'Lista encadeada: busca O(n) (percorre tudo). BST balanceada: O(log n).',
     qs: 'No Selection Sort, a cada passagem o algoritmo procura o menor elemento da parte não ordenada e o coloca na posição correta no início do vetor.',
-    qi: 'Insertion Sort funciona como organizar cartas na mão: você pega uma carta e insere na posição correta entre as que já estão ordenadas.'
+    qi: 'Insertion Sort funciona como organizar cartas na mão: você pega uma carta e insere na posição correta entre as que já estão ordenadas.',
+    qp: '4 será o valor do topo da pilha.',
+    qbtr: 'Árvores B armazenam várias chaves por nó. Isso reduz a altura da árvore, diminuindo o número de acessos ao disco — ideal para bancos de dados.',
+    qbplus: 'Na Árvore B+, os dados reais ficam apenas nas folhas. Os nós internos funcionam apenas como índices para navegação.'
 };
 
 // ─── DOTS ────────────────────────
