@@ -670,6 +670,61 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 </div>
 </div>
 
+<!-- ╔════════════════════════════════════╗ -->
+<!-- ║  SLIDE 18.1 — TRAVESSIAS Invertida ║ -->
+<!-- ╚════════════════════════════════════╝ -->
+<div class="slide s-warn" id="s17_inv">
+<div class="sc" style="text-align:center">
+  <div class="badge badge-vm a1">🚨 Pegadinha Cesgranrio</div>
+  <div class="ctitle a2" style="color:#fff">Travessias <span style="color:var(--vm)">Invertidas</span></div>
+  <div class="a3" style="color:rgba(255,255,255,.8);font-size:13px;margin-bottom:10px">Atenção! A banca adora inverter a ordem para <b>Direita → Esquerda</b>.</div>
+  
+  <div id="trav-tree-inv" class="a4" style="width:100%;max-width:380px;margin:0 auto">
+    <svg viewBox="0 0 300 150" style="width:100%">
+      <line x1="150" y1="30" x2="80" y2="85" stroke="rgba(255,255,255,.2)" stroke-width="2"></line>
+      <line x1="150" y1="30" x2="220" y2="85" stroke="rgba(255,255,255,.2)" stroke-width="2"></line>
+      <line x1="80" y1="85" x2="45" y2="135" stroke="rgba(255,255,255,.15)" stroke-width="2"></line>
+      <line x1="80" y1="85" x2="115" y2="135" stroke="rgba(255,255,255,.15)" stroke-width="2"></line>
+      <line x1="220" y1="85" x2="185" y2="135" stroke="rgba(255,255,255,.15)" stroke-width="2"></line>
+      <line x1="220" y1="85" x2="255" y2="135" stroke="rgba(255,255,255,.15)" stroke-width="2"></line>
+      
+      <circle id="tni1" cx="150" cy="30" r="18" fill="rgba(255,208,0,.2)" stroke="#FFD000" stroke-width="2"></circle>
+      <text x="150" y="35" text-anchor="middle" fill="#FFD000" font-family="JetBrains Mono" font-weight="700" font-size="13">A</text>
+      
+      <circle id="tni2" cx="80" cy="85" r="16" fill="rgba(0,87,168,.4)" stroke="#0057A8" stroke-width="2"></circle>
+      <text x="80" y="90" text-anchor="middle" fill="#7BB8FF" font-family="JetBrains Mono" font-weight="700" font-size="12">B</text>
+      
+      <circle id="tni3" cx="220" cy="85" r="16" fill="rgba(0,87,168,.4)" stroke="#0057A8" stroke-width="2"></circle>
+      <text x="220" y="90" text-anchor="middle" fill="#7BB8FF" font-family="JetBrains Mono" font-weight="700" font-size="12">C</text>
+      
+      <circle id="tni4" cx="45" cy="135" r="14" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.2)" stroke-width="1.5"></circle>
+      <text x="45" y="140" text-anchor="middle" fill="rgba(255,255,255,.7)" font-family="JetBrains Mono" font-size="11">D</text>
+      
+      <circle id="tni5" cx="115" cy="135" r="14" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.2)" stroke-width="1.5"></circle>
+      <text x="115" y="140" text-anchor="middle" fill="rgba(255,255,255,.7)" font-family="JetBrains Mono" font-size="11">E</text>
+      
+      <circle id="tni6" cx="185" cy="135" r="14" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.2)" stroke-width="1.5"></circle>
+      <text x="185" y="140" text-anchor="middle" fill="rgba(255,255,255,.7)" font-family="JetBrains Mono" font-size="11">F</text>
+      
+      <circle id="tni7" cx="255" cy="135" r="14" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.2)" stroke-width="1.5"></circle>
+      <text x="255" y="140" text-anchor="middle" fill="rgba(255,255,255,.7)" font-family="JetBrains Mono" font-size="11">G</text>
+    </svg>
+  </div>
+  
+  <div id="trav-result-inv" class="step-info a4" style="font-size:14px;letter-spacing:2px; background:rgba(229,57,53,.15); border-color:rgba(229,57,53,.3); color:#fff;">Escolha uma travessia invertida</div>
+  
+  <div class="controls a5">
+    <button class="ctrl-btn" id="tb-pre-inv" onclick="showTraversalInv('pre')">Pré-Ordem (Invertida)</button>
+    <button class="ctrl-btn" id="tb-in-inv" onclick="showTraversalInv('in')">Em-Ordem (Invertida)</button>
+    <button class="ctrl-btn" id="tb-pos-inv" onclick="showTraversalInv('pos')">Pós-Ordem (Invertida)</button>
+  </div>
+  
+  <div id="trav-desc-inv" class="card-vm a5" style="margin-top:8px;text-align:left">
+    <div class="sm" style="color:#fff">🟢 <b>Pré:</b> Raiz → Dir → Esq &nbsp;|&nbsp; 🟡 <b>Em:</b> Dir → Raiz → Esq &nbsp;|&nbsp; 🔴 <b>Pós:</b> Dir → Esq → Raiz</div>
+  </div>
+</div>
+</div>
+
 <!-- ╔══════════════════════════════╗ -->
 <!-- ║  SLIDE 19 — AVL             ║ -->
 <!-- ╚══════════════════════════════╝ -->
@@ -1049,7 +1104,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 
 <script>
 // ─── GLOBALS ─────────────────────
-const TOTAL = 29;
+const TOTAL = 30;
 let cur = 0;
 const answered = {};
 const correct = {qa:'B',qb:'C',qc:'B',qd:'B',qe:'C',qf:'B'};
@@ -1362,6 +1417,7 @@ const traversals={
   in: {result:'D → B → E → A → F → C → G',desc:'🟡 Em-Ordem: Esq→Raiz→Dir. Numa BST = ordem crescente!'},
   pos:{result:'D → E → B → F → G → C → A',desc:'🔴 Pós-Ordem: Esq→Dir→Raiz. "Raiz por último." Uso: deletar árvore.'},
 };
+
 function showTraversal(type){
   const t=traversals[type];
   document.getElementById('trav-result').textContent=t.result;
@@ -1370,6 +1426,20 @@ function showTraversal(type){
   document.getElementById('tb-'+type).classList.add('active');
 }
 
+// ─── TRAVESSIAS INVERTIDAS (CESGRANRIO TRICK) ────
+const traversalsInv = {
+  pre: { result: 'A → C → G → F → B → E → D', desc: '🟢 Pré-Ordem Invertida: Raiz → Dir → Esq.' },
+  in:  { result: 'G → C → F → A → E → B → D', desc: '🟡 Em-Ordem Invertida: Dir → Raiz → Esq.' },
+  pos: { result: 'G → F → C → E → D → B → A', desc: '🔴 Pós-Ordem Invertida: Dir → Esq → Raiz.' },
+};
+
+function showTraversalInv(type) {
+  const t = traversalsInv[type];
+  document.getElementById('trav-result-inv').textContent = t.result;
+  document.getElementById('trav-desc-inv').querySelector('.sm').textContent = t.desc;
+  document.querySelectorAll('#tb-pre-inv, #tb-in-inv, #tb-pos-inv').forEach(b => b.classList.remove('active'));
+  document.getElementById('tb-' + type + '-inv').classList.add('active');
+}
 // ─── INIT ────────────────────────
 function initBars(){
   document.querySelectorAll('.bar-fill').forEach(b=>{
