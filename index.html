@@ -1811,15 +1811,16 @@ const correct = {
   qs: 'B', 
   qi: 'A',
   qp: 'C',
- qbtr: 'B',
- qbplus: 'C',
- qavl_master: 'B' 
+  qbtr: 'B',
+  qbplus: 'C',
+  qd_inv: 'C', // Chave com traço precisa de aspas
+  qavl_master: 'B' 
 };
 
 const explain = {
     qa: 'log₂(64) = 6. Em cada passo descarta metade → 6 comparações no máximo.',
     qb: 'Dois fors encadeados + troca de vizinhos v[j] e v[j+1] = Bubble Sort.',
-    qc: 'push(5)→[5] · push(8)→[5,8] · pop()→[5] · push(3)→[5,3] · push(7)→[5,3,7] · pop()→[5,3]. Topo = 3.',
+    qc: 'push(5)→[1] · push(8)→[1, 2] · pop()→[1] · push(3)→[1, 3] · push(7)→[1, 3, 4] · pop()→[1, 3]. Topo = 3.',
     qd: 'Em-Ordem: Esq→Raiz→Dir numa BST = ordem crescente: 1,2,3,4,5,6,7.',
     qe: 'Max-Heap acessa o elemento de maior prioridade em O(1) — ideal para escalonador.',
     qf: 'Lista encadeada: busca O(n) (percorre tudo). BST balanceada: O(log n).',
@@ -1828,6 +1829,7 @@ const explain = {
     qp: '4 será o valor do topo da pilha.',
     qbtr: 'Árvores B armazenam várias chaves por nó. Isso reduz a altura da árvore, diminuindo o número de acessos ao disco — ideal para bancos de dados.',
     qbplus: 'Na Árvore B+, os dados reais ficam apenas nas folhas. Os nós internos funcionam apenas como índices para navegação.',
+    qd_inv: 'Fique muito atento, pois a Cesgranrio costuma utilizar a pegadinha de inverter o percurso convencional das árvores binárias (como visitar Direita-Raiz-Esquerda no in-ordem) sem avisar previamente no enunciado, apenas para confundir e testar a atenção do candidato.',
     qavl_master: `Foram detectados 5 desbalanceamentos críticos durante a inserção:
     1) Nó 25: Rotação Dupla LR (no nó 43)
     2) Nó 8: Rotação Dupla LR (no nó 12)
@@ -1838,8 +1840,7 @@ const explain = {
     
     Caminhamentos:
     • PRÉ-ORDEM: 43, 19, 8, 3, 12, 15, 29, 25, 34, 31, 63, 61, 50, 68, 88
-    • PÓS-ORDEM: 3, 15, 12, 8, 25, 31, 34, 29, 19, 50, 61, 88, 68, 63, 43
-`
+    • PÓS-ORDEM: 3, 15, 12, 8, 25, 31, 34, 29, 19, 50, 61, 88, 68, 63, 43` // Crase de fechamento adicionada
 };
 
 // ─── DOTS ────────────────────────
