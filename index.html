@@ -176,22 +176,153 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--esc);font-fami
 <!-- ╔══════════════════════════════╗ -->
 <!-- ║  SLIDE 1 — CAPA              ║ -->
 <!-- ╚══════════════════════════════╝ -->
-<div class="slide s-dark active" id="s0">
-<div class="sc" style="text-align:center">
-  <div class="badge badge-am a1">BB · Agente de Tecnologia · Módulo 1</div>
-  <div class="big a2" style="color:var(--am)">Estrutura<br>de Dados</div>
-  <div class="big a2" style="color:#fff;font-size:clamp(24px,7vw,48px);margin-top:-4px">&amp; Algoritmos</div>
-  <div class="a3" style="color:var(--cinza);font-size:14px;margin:16px 0">Cesgranrio — Leandro Abreu de Oliveira Filho</div>
-  <div class="hlist a4">
-    <span class="hchip chip-am">Busca</span>
-    <span class="hchip chip-az">Ordenação</span>
-    <span class="hchip chip-vd">Listas/Pilhas/Filas</span>
-    <span class="hchip chip-or">Árvores</span>
-    <span class="hchip chip-cx">Big-O</span>
-  </div>
-  <div class="a5" style="color:rgba(255,255,255,.25);font-size:11px;margin-top:20px;letter-spacing:2px">40 SLIDES · TOQUE PARA AVANÇAR ▶</div>
+
+  <div class="slide s-dark active" id="s0">
+  <div class="sc" style="text-align:center">
+    
+    <div class="big a2" style="color:var(--am, #ffb300); font-size: 2.2em; font-weight: bold; line-height: 1.1;">Estrutura de Dados</div>
+    <div class="big a2" style="color:#fff;font-size:clamp(20px,3vw,44px);margin-top:-4px; font-weight: bold;">&amp; Algoritmos</div>
+    
+    <div class="a3" style="color:var(--cinza, #aaa);font-size:14px;margin:16px 0">
+      Cesgranrio — Leandro Abreu de Oliveira Filho
+    </div>
+    
+    <!-- CHIPS -->
+    <div class="hlist a4" style="margin-bottom: 20px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;">
+      <span class="hchip chip-am" style="background: rgba(255,152,0,0.2); border: 1px solid #ff9800; padding: 4px 10px; border-radius: 12px; font-size: 11px; color: #ffb300;">Busca</span>
+      <span class="hchip chip-az" style="background: rgba(33,150,243,0.2); border: 1px solid #2196f3; padding: 4px 10px; border-radius: 12px; font-size: 11px; color: #64b5f6;">Ordenação</span>
+      <span class="hchip chip-vd" style="background: rgba(76,175,80,0.2); border: 1px solid #4caf50; padding: 4px 10px; border-radius: 12px; font-size: 11px; color: #a5d6a7;">Listas/Pilhas/Filas</span>
+      <span class="hchip chip-or" style="background: rgba(255,87,34,0.2); border: 1px solid #ff5722; padding: 4px 10px; border-radius: 12px; font-size: 11px; color: #ff8a65;">Árvores</span>
+      <span class="hchip chip-cx" style="background: rgba(158,158,158,0.2); border: 1px solid #9e9e9e; padding: 4px 10px; border-radius: 12px; font-size: 11px; color: #ccc;">Big-O</span>
+    </div>
+
+    <!-- PAINEL DE ÁUDIO (PLAYLIST) -->
+    <div class="a4" style="margin-top: 25px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid #333;">
+      <div style="color: var(--am, #ffb300); font-size: 11px; margin-bottom: 12px; letter-spacing: 1px; font-weight: bold; text-transform: uppercase;">
+        > playlist.play("Revisão de Algoritmos")
+      </div>
+      
+      <!-- Música 1 -->
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">
+        <span style="color: #eee; font-size: 12px; font-family: monospace;">1. Entre Nós e Ponteiros </span>
+        <div>
+          <button onclick="playAudioDados('musica1')" style="background: var(--am, #ffb300); border: none; color: black; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-size: 10px; font-weight: bold; transition: 0.2s;">PLAY</button>
+          <button onclick="stopAudioDados('musica1')" style="background: #444; border: none; color: white; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-size: 10px; font-weight: bold; transition: 0.2s;">STOP</button>
+        </div>
+      </div>
+
+      <!-- Música 2 -->
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">
+        <span style="color: #eee; font-size: 12px; font-family: monospace;">2. Organizando o Caos </span>
+        <div>
+          <button onclick="playAudioDados('musica2')" style="background: var(--am, #ffb300); border: none; color: black; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-size: 10px; font-weight: bold; transition: 0.2s;">PLAY</button>
+          <button onclick="stopAudioDados('musica2')" style="background: #444; border: none; color: white; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-size: 10px; font-weight: bold; transition: 0.2s;">STOP</button>
+        </div>
+      </div>
+
+      <!-- Música 3 -->
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <span style="color: #eee; font-size: 12px; font-family: monospace;">3. Fluxo de Algoritmos</span>
+        <div>
+          <button onclick="playAudioDados('musica3')" style="background: var(--am, #ffb300); border: none; color: black; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-size: 10px; font-weight: bold; transition: 0.2s;">PLAY</button>
+          <button onclick="stopAudioDados('musica3')" style="background: #444; border: none; color: white; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-size: 10px; font-weight: bold; transition: 0.2s;">STOP</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTÃO PARA MOSTRAR/OCULTAR A LETRA DA MÚSICA 1 -->
+    <button class="a4" onclick="toggleLetraEstrutura()" style="background-color: transparent; border: 1px solid var(--am, #ffb300); color: var(--am, #ffb300); margin-top: 15px; padding: 10px 15px; font-size: 12px; font-weight: bold; border-radius: 8px; cursor: pointer; transition: 0.3s; width: 100%;">
+        🎤 Mostrar / Ocultar Letra da Faixa 1
+    </button>
+
+    <!-- CAIXA COM A LETRA (Escondida por padrão, com rolagem) -->
+    <div id="caixaLetraEstrutura" class="a5" style="display: none; text-align: left; background: rgba(0,0,0,0.6); border-left: 3px solid var(--am, #ffb300); padding: 15px; border-radius: 8px; margin-top: 10px; max-height: 200px; overflow-y: auto; box-shadow: inset 0 0 10px rgba(0,0,0,0.5);">
+        <div style="font-size: 0.80em; line-height: 1.6; color: #ddd;">
+            <b style="color: var(--am, #ffb300);">(Intro - Batida forte e animada)</b><br>
+            Atenção, Agente de TI! A memória tá pronta, o código vai rodar.<br>
+            Array, Pilha, Fila, Árvore... Prepara o teste de mesa, que a gente vai gabaritar!<br><br>
+
+            <b style="color: #a5d6a7;">(Verso 1: As Buscas)</b><br>
+            Se o vetor tá bagunçado e eu preciso procurar, a Busca Sequencial vai de ponta a ponta olhar.<br>
+            No pior caso é <span style="font-family: monospace; color:#fff">O(n)</span>, não tem como fugir, mas se o array tá ordenado, a mágica vai surgir!<br>
+            Chama a Busca Binária, dividindo bem no meio, cortando pela metade, <span style="font-family: monospace; color:#fff">O(log n)</span> é o seu esteio!<br>
+            <i>(Pegadinha!)</i> Mas não cai na da Cesgranrio a te enganar: Se o vetor não tá ordenado, a Binária vai falhar!<br><br>
+
+            <b style="color: #ff9800;">(Verso 2: Ordenação - Sorting)</b><br>
+            A banca te dá o array e pede a terceira passagem!<br>
+            <span style="font-family: monospace; color:#fff">Bubble Sort</span> é a bolha, flutuando a vizinhança, Compara o <span style="font-family: monospace; color:#fff">j</span> com <span style="font-family: monospace; color:#fff">j+1</span> e faz a mudança!<br>
+            <span style="font-family: monospace; color:#fff">Selection Sort</span> é o caçador, procura o menor valor, Joga ele lá pro início, pra ser o vencedor!<br>
+            E o <span style="font-family: monospace; color:#fff">Insertion Sort</span>? É como carta na mão, Recua no <span style="font-family: monospace; color:#fff">while (j--)</span> achando a posição!<br><br>
+
+            <b style="color: #ff5252;">(Refrão - Explosivo! Cante bem alto!)</b><br>
+            Na Pilha é <span style="font-family: monospace; color:#fff">LIFO</span>! O último a entrar é o primeiro a vazar!<br>
+            Dá <span style="font-family: monospace; color:#fff">Push</span> no topo, dá <span style="font-family: monospace; color:#fff">Pop</span> pra tirar!<br>
+            Na Fila é <span style="font-family: monospace; color:#fff">FIFO</span>! Chegou primeiro, é o primeiro a andar!<br>
+            E a Lista Encadeada usa o ponteiro pra ligar, não precisa tá vizinha, na memória vai pular!<br><br>
+
+            <b style="color: #a5d6a7;">(Verso 3: As Árvores)</b><br>
+            Estrutura não linear, a Árvore Binária chegou,<br>
+            No máximo dois filhos é a regra que ela ditou!<br>
+            Se for Árvore de Busca (<span style="font-family: monospace; color:#fff">BST</span>), decora a direção: O menor vai pra Esquerda, e o maior pra Direita, irmão!<br><br>
+
+            <b style="color: #b388ff;">(Ponte: O Radar de Pegadinhas)</b><br>
+            Presta atenção nas travessias, a banca quer te derrubar!<br>
+            <b>Pré-ordem:</b> A Raiz vem primeiro!<br>
+            <b>In-ordem:</b> A Raiz tá no meio!<br>
+            <b>Pós-ordem:</b> A Raiz vai pro final!<br>
+            <i>(Cuidado!)</i> Eles podem inverter esquerda e direita no edital!<br>
+            E se falar de banco de dados e índice pra pesquisar, a Árvore B é a resposta, todas folhas no mesmo andar!<br><br>
+
+            <b style="color: #ff5252;">(Refrão - Explosivo!)</b><br>
+            Na Pilha é <span style="font-family: monospace; color:#fff">LIFO</span>! O último a entrar é o primeiro a vazar! Dá <span style="font-family: monospace; color:#fff">Push</span> no topo, dá <span style="font-family: monospace; color:#fff">Pop</span> pra tirar!<br>
+            Na Fila é <span style="font-family: monospace; color:#fff">FIFO</span>! Chegou primeiro, é o primeiro a andar! E a Lista Encadeada usa o ponteiro pra ligar...<br><br>
+
+            <b style="color: var(--am, #ffb300);">(Outro - Ritmo diminuindo e focado)</b><br>
+            Bubble, Selection, Insertion... <span style="font-family: monospace; color:#fff">O(n²)</span> na mente.<br>
+            Busca Binária é mais rápido, seja inteligente!<br>
+            Teste de mesa feito, vaga garantida... Agente de Tecnologia, mudando de vida! <i>(Som de tecla Enter batendo)</i>
+        </div>
+    </div>
+
+      </div>
 </div>
-</div>
+
+<!-- SCRIPTS ESPECÍFICOS DESTE SLIDE -->
+<script>
+  // Objeto com as 3 músicas mapeadas
+  const audioDados = {
+    musica1: new Audio('Entre Nós e Ponteiros.mp3'),
+    musica2: new Audio('Organizando o Caos.mp3'),
+    musica3: new Audio('Fluxo de Algoritmos.mp3')
+  };
+
+  // Função inteligente que para todas as músicas antes de dar play na selecionada
+  function playAudioDados(id) {
+    Object.values(audioDados).forEach(a => { a.pause(); a.currentTime = 0; });
+    if(audioDados[id]) {
+        audioDados[id].play();
+    }
+  }
+
+  // Função para parar a música manualmente
+  function stopAudioDados(id) {
+    if(audioDados[id]) {
+        audioDados[id].pause();
+        audioDados[id].currentTime = 0;
+    }
+  }
+
+  // Toggle da caixa de letras
+  function toggleLetraEstrutura() {
+      var caixa = document.getElementById("caixaLetraEstrutura");
+      if (caixa.style.display === "none" || caixa.style.display === "") {
+          caixa.style.display = "block";
+      } else {
+          caixa.style.display = "none";
+      }
+  }
+</script>
+
 
 <!-- ╔══════════════════════════════╗ -->
 <!-- ║  SLIDE 2 — O QUE É BIG-O    ║ -->
